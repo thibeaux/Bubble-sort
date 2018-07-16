@@ -1,48 +1,67 @@
 #include <iostream>
+
 using namespace std;
 
-// Sort in non-decreasing order
 void printArray(int arr[], int len) {
+
   for (int i = 0; i < len; i++) {
+
     cout << arr[i];
 
+
+
     if(i < len - 1) {
+
       cout << " ";
+
     }
+
   }
+
+
 
   cout << "" << endl;
+
 }
 
-void bubblesort(int arr[], int n) {
-  for (int i = 0; i < n; i++) {
-    for (int j = 0; j < n - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        int temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      }
+void bubblesort (int num[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+      for (int j = 0; j < n - i - 1; j++)
+	  {   
+	    if (num[j] > num[j + 1])
+	    {
+
+	      int temp = num[j];
+
+	      num[j] = num[j + 1];
+
+	      num[j + 1] = temp;
+	    }
+	  }
+	cout << "After pass " << i << "  : " ;
+
+    // Print array after every pass
+
+    printArray(num, n);
+    }
+    
+}
+
+  int main ()
+  {
+    int num[] = { 0 };
+    int i = 0;
+    int len = sizeof (num);
+    cout << "Enter a number and type*done* when finished: " << endl;
+
+    while (cin >> num[i])
+    {
+	    i++;
     }
 
-    cout << "After pass " << i << "  : " ;
-    // Print array after every pass
-    printArray(arr, n);
+    printArray(num,len);
+    bubblesort(num,len);
+    return 0;
   }
-}
-
-int main() {
-  int arr[] = {10, 7, 3, 1, 9, 7, 4, 3};
-  int len = sizeof(arr) / sizeof(int);
-  
-  cout <<"Please enter your numbers to organize and type *done* when finished"<<endl;
-  int i=0;
-  
-  while (cin>>arr[i])
-  {
-      i++;
-  }
-  cout << "Initial Array : ";
-  printArray(arr, len);
-  bubblesort(arr, len);
-  return 0;
-}
